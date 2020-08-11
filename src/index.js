@@ -32,10 +32,10 @@ const Board = () => {
     //Make copy of state square array
     const newSquares = [...squares];
 
-    const winnderDeclared = Boolean(winnderDeclared(squares));
+    const winnerDeclared = Boolean(calculateWinner(newSquares));
     const squareFilled = Boolean(newSquares[i]);
 
-    if (winnderDeclared || squareFilled) {
+    if (winnerDeclared || squareFilled) {
       return;
     }
 
