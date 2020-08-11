@@ -5,23 +5,36 @@ import './index.css';
 
 const Square = (props) => {
 
-  const [value, setValue] = useState(null);
-
   return (
     <button
       className="square"
-      onClick={() => setValue('X')}
+      onClick={props.onClickEvent}
     >
-      {value}
+      {props.value}
     </button>
   );
 };
 
 const Board = () => {
 
+  const initialSquares = [
+    null, null, null,
+    null, null, null,
+    null, null, null
+  ];
+
+  const [squares, setSquares] = useState(initialSquares);
+
+  const handleClickEvent = (i) => {
+    alert(`Square ${i} clicked`);
+  };
+
   const renderSquare = (i) => {
     return (
-      <Square />
+      <Square
+        value={squares[i]}
+        onClickEvent={() => handleClickEvent(i)}
+      />
     );
   };
 
