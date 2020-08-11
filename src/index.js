@@ -5,11 +5,9 @@ import './index.css';
 
 const Square = () => {
   return (
-    <div style={{
-      backgroundColor: 'gold',
-      margin: 10,
-      padding: 20,
-    }}>Square</div>
+    <div className="square">
+      X
+    </div>
   );
 };
 
