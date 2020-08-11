@@ -17,16 +17,23 @@ const Square = (props) => {
 
 const Board = () => {
 
+  const initialSquares = Array(9).fill(null);
+  /*
   const initialSquares = [
     null, null, null,
     null, null, null,
     null, null, null
-  ];
+  ];*/
 
   const [squares, setSquares] = useState(initialSquares);
 
   const handleClickEvent = (i) => {
-    alert(`Square ${i} clicked`);
+    //Make copy of state square array
+    const newSquares = [...squares];
+    //Mutate copy setting i-th element to x
+    newSquares[i] = 'X';
+    //Call setSquares with mutated copy
+    setSquares(newSquares);
   };
 
   const renderSquare = (i) => {
