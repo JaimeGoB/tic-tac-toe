@@ -26,14 +26,18 @@ const Board = () => {
   ];*/
 
   const [squares, setSquares] = useState(initialSquares);
+  const [xIsNext, setXIsNext] = useState(true);
 
   const handleClickEvent = (i) => {
     //Make copy of state square array
     const newSquares = [...squares];
-    //Mutate copy setting i-th element to x
-    newSquares[i] = 'X';
+
+    newSquares[i] = xIsNext ? 'X' : 'O';
+
     //Call setSquares with mutated copy
     setSquares(newSquares);
+
+    setXIsNext(!xIsNext);
   };
 
   const renderSquare = (i) => {
