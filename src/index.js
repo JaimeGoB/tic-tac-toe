@@ -3,15 +3,25 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-const Square = () => {
+const Square = (props) => {
   return (
-    <div className="square">
-      X
-    </div>
+    <button
+      className="square"
+      onClick={() => alert(`square ${props.value} clicked`)}
+    >
+      {props.value}
+    </button>
   );
 };
 
 const Board = () => {
+
+  const renderSquare = (i) => {
+    return (
+      <Square value={i} />
+    );
+  };
+
   return (
     <div style={{
       backgroundColor: 'skyblue',
@@ -20,15 +30,15 @@ const Board = () => {
     }}>
       Board
       <div className="board-row">
-        <Square /><Square /><Square />
+        {renderSquare(1)} {renderSquare(2)} {renderSquare(3)}
+      </div >
+      <div className="board-row">
+        {renderSquare(4)} {renderSquare(5)} {renderSquare(6)}
       </div>
       <div className="board-row">
-        <Square /><Square /><Square />
+        {renderSquare(7)} {renderSquare(8)} {renderSquare(9)}
       </div>
-      <div className="board-row">
-        <Square /><Square /><Square />
-      </div>
-    </div>
+    </div >
   );
 };
 
